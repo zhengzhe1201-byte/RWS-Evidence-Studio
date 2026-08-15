@@ -237,3 +237,63 @@ tbody tr:hover { background: #f8fbfb; }
   .filters .input, .filters .select { width: 100%; }
   .balance-row { grid-template-columns: 110px 1fr 55px; }
 }
+
+
+/* RWS governance and reporting extensions */
+.nav { overflow-y: auto; scrollbar-width: thin; }
+.source-grid, .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.source-card, .method-card { padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+.source-card.connected { background: #effaf6; border-color: #b9dfce; }
+.source-card.pending { background: #fafbfc; }
+.source-card > div, .governance-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.source-card p, .method-card p, .governance-item p { margin: 9px 0; color: #52666f; font-size: 12px; line-height: 1.65; }
+.source-card small, .governance-item small, .diagnostic-card small, .table-note { display: block; color: var(--muted); font-size: 11px; line-height: 1.55; }
+.source-status, .method-role { color: var(--teal); font-size: 10px; font-weight: 800; white-space: nowrap; }
+.governance-list { display: grid; gap: 12px; }
+.governance-item { padding: 17px; border: 1px solid var(--line); border-radius: 14px; background: #fbfcfd; }
+.governance-title .mono { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; }
+.report-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; margin: 18px 0; }
+.recommendation-card { padding: 24px; border: 1px solid #a7d9d4; border-radius: var(--radius); background: linear-gradient(145deg, #e8f7f5, #fbfefd); box-shadow: var(--shadow); }
+.recommendation-card h2 { margin: 13px 0 8px; }
+.recommendation-card > p { color: #425b63; line-height: 1.75; }
+.method-card.recommended { border: 2px solid var(--teal); background: var(--teal-soft); }
+.diagnostic-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.diagnostic-card { padding: 15px; border: 1px solid var(--line); border-radius: 13px; background: #f8fafb; }
+.diagnostic-card span, .diagnostic-card strong, .diagnostic-card small { display: block; }
+.diagnostic-card span { color: var(--muted); font-size: 11px; }
+.diagnostic-card strong { margin: 8px 0 4px; font-size: 22px; }
+.smd-row { padding: 11px 0; display: grid; grid-template-columns: 155px 1fr 82px; gap: 15px; align-items: center; border-bottom: 1px solid #edf1f3; }
+.smd-bars { display: grid; gap: 5px; }
+.smd-bars span { display: block; min-width: 2px; height: 6px; border-radius: 99px; }
+.smd-bars .before, .smd-legend i.before { background: #d79a42; }
+.smd-bars .after, .smd-legend i.after { background: var(--teal); }
+.smd-row small { color: var(--muted); text-align: right; }
+.smd-legend { display: flex; gap: 18px; justify-content: flex-end; margin-top: 12px; color: var(--muted); font-size: 11px; }
+.smd-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.smd-legend i { width: 20px; height: 5px; border-radius: 99px; }
+.status-rail { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 8px; }
+.status-rail span { padding: 7px 10px; border-radius: 99px; font-size: 10px; font-weight: 800; }
+.status-rail .done { color: var(--green); background: #eaf7f0; }
+.status-rail .pending { color: var(--amber); background: var(--amber-soft); }
+.report-table { overflow-x: auto; }
+.report-table table { min-width: 420px; }
+.table-note { margin-top: 4px; white-space: normal; }
+
+@media (max-width: 1050px) {
+  .diagnostic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .source-grid, .method-grid, .diagnostic-grid { grid-template-columns: 1fr; }
+  .smd-row { grid-template-columns: 100px 1fr 65px; }
+  .report-actions { justify-content: stretch; }
+  .report-actions button { flex: 1 1 auto; }
+}
+@media print {
+  body { background: #fff; }
+  .sidebar, .topbar, .synthetic-banner, .no-print, .toast, .drawer, .backdrop { display: none !important; }
+  .app-shell { display: block; }
+  .main { padding: 0; }
+  .view-root { max-width: none; margin: 0; }
+  .evidence-paper { border: 0; box-shadow: none; padding: 0; }
+  .evidence-section { break-inside: avoid; }
+}
